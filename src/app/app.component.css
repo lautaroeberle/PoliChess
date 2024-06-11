@@ -23,7 +23,7 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #343a40;
-    padding: 20px 40px;
+    padding: 15px 35px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     box-sizing: border-box;
@@ -109,6 +109,11 @@ body {
 
 .navbar-profile img:hover {
     border: 2px solid #ffd700;
+}
+.navbar-brand img {
+    max-width: 15%; /* La imagen ocupará el 100% del ancho disponible del contenedor */
+    max-height: 15%; /* La imagen ocupará el 100% del alto disponible del contenedor */
+    vertical-align: middle; /* Para alinear verticalmente la imagen en caso de ser necesario */
 }
 
 /* Popup styles */
