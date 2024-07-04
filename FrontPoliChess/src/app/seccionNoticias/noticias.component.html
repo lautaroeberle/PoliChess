@@ -1,0 +1,54 @@
+<form id="songs-form" (submit)="onSubmit($event, filter.value)">
+    <div>
+      <input id="filter" #filter type="text" placeholder="Filtrar por nombre...">
+    <span *ngIf="filtroIngresado" (click)="eliminarFiltro()">&times;</span>
+    </div>
+    <button type="button" (click)="filtrarResultados(filter.value)">Buscar</button>
+  </form>
+  <section id="songs-list">
+    <app-noticia *ngFor="let cancion of resultados" [noticia]="noticia" (eventoModificar)="modificar(noticia)" (eventoEliminar)="eliminar(noticia)"></app-noticia>
+  </section>
+  <button id="add" (click)="agregar()">Agregar noticia</button>
+  <div id="blurred-background" *ngIf="blur"></div>
+  <div id="action-panel" *ngIf="blur">
+  
+    <h2 *ngIf="agregando">Agregar noticia</h2>
+    <h2 *ngIf="modificando">Modificar noticia</h2>
+    <h2 *ngIf="eliminando">Eliminar noticia</h2>
+  
+    <p *ngIf="agregando || modificando">Por favor, complete los siguientes campos:</p>
+    <p *ngIf="eliminando">¿Seguro que quiere eliminar la noticia <br>"<b>{{ noticiaActual.autor }} - {{ noticiaActual.titulo }}</b>"?<br>Esta acción no se puede deshacer.</p>
+  
+    <form id="song-form" *ngIf="agregando || modificando">
+  
+      <p *ngIf="modificando">(Dejar vacío para mantener los mismos datos)</p><br *ngIf="modificando">
+  
+      <label for="titulo">Titulo: </label>
+      <input type="text" name="titulo" id="addedName" required *ngIf="agregando"><br *ngIf="agregando">
+      <input type="text" name="titulo" id="newName" placeholder="{{ noticiaActual.titulo }}" *ngIf="modificando"><br *ngIf="modificando">
+  
+      <label for="autor">Autor: </label>
+      <input type="text" name="autor" id="addedArtist" required *ngIf="agregando"><br *ngIf="agregando">
+      <input type="text" name="autor" id="newArtist" placeholder="{{ noticiaActual.autor }}" *ngIf="modificando"><br *ngIf="modificando">
+  
+      <label for="epigrafe">Epigrafe: </label>
+      <input type="text" name="epigrafe" id="addedAlbum" required *ngIf="agregando"><br *ngIf="agregando">
+      <input type="text" name="epigrafe" id="newAlbum" placeholder="{{ noticiaActual.epigrafe }}" *ngIf="modificando"><br *ngIf="modificando">
+  
+      <label for="entradilla">Entradilla: </label>
+      <input type="text" name="epigrafe"  id="addedMinutes" required *ngIf="agregando"><br *ngIf="agregando">
+      <input type="text" name="epigrafe"  id="newMinutes" placeholder="{{ noticiaActual.entradilla }}" *ngIf="modificando"><br *ngIf="modificando">
+  
+      <label for="segundos">Cuerpo: </label>
+      <input type="text" name="cuerpo"  id="addedSeconds" required *ngIf="agregando"><br *ngIf="agregando">
+      <input type="text" name="cuerpo"  id="newSeconds" placeholder="{{ noticiaActual.cuerpo }}" *ngIf="modificando"><br *ngIf="modificando">
+  
+    </form>
+ 
+    <button class="confirm-button" (click)="resultadoAccion('agregar')" *ngIf="agregando">Agregar</button>
+    <button class="confirm-button" (click)="resultadoAccion('modificar')" *ngIf="modificando">Aplicar</button>
+    <button class="confirm-button" (click)="resultadoAccion('eliminar')" *ngIf="eliminando">Eliminar</button>
+  
+    <button id="cancel-button" (click)="resultadoAccion('cancelar')">Cancelar</button>
+  
+  </div>

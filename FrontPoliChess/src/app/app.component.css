@@ -1,0 +1,323 @@
+/* Reset some default browser styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;   
+    color: #333;
+}
+:host {
+    display: block;
+    min-height: 100vh;
+    background-image: url('../assets/posiblefondocrema3.jpeg'); /* Cambia la ruta a tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #343a40;
+    padding: 15px 35px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    font-size: 32px;
+    color: #ffffff;
+    font-family: 'Libre Baskerville', serif;
+    letter-spacing: 2px;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.navbar-brand::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+   
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-brand:hover {
+    /* color: #ffd700; */
+    transform: scale(1.1);
+}
+
+.navbar-brand:hover::after {
+    width: 100%;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.navbar-menu a:hover {
+    /*color: #ffd700;*/
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 28px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.navbar-profile {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.navbar-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    transition: border 0.3s;
+}
+
+.navbar-profile img:hover {
+    border: 2px solid #ffd700;
+}
+.navbar-brand img {
+    max-width: 15%; /* La imagen ocupará el 100% del ancho disponible del contenedor */
+    max-height: 15%; /* La imagen ocupará el 100% del alto disponible del contenedor */
+    vertical-align: middle; /* Para alinear verticalmente la imagen en caso de ser necesario */
+}
+
+/* Popup styles */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+    overflow: hidden;
+    height: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #333;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+.popup-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.popup-content form {
+    display: none;
+    flex-direction: column;
+    visibility: hidden;
+    justify-content: center;
+}
+
+.popup-content form.active {
+    display: flex;
+    visibility: visible;
+}
+
+.popup-content label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.popup-content input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.popup-content input:focus {
+    border-color: darkgreen;
+    outline: none;
+}
+
+.popup-content button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: burlywood;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+}
+
+.popup-content button:hover {
+    background-color: coral;
+}
+
+.popup-content button:focus {
+    outline: none;
+}
+
+.toggle-button {
+    background-color: transparent;
+    color: violet;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: -10px;
+    transition: color 0.3s;
+}
+
+.toggle-button:hover {
+    color: #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        align-items: center;
+    }
+
+    .navbar-menu li {
+        margin: 10px 0;
+    }
+
+    .navbar-menu-visible {
+        display: flex;
+    }
+
+    .navbar-profile {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Additional professional styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+p {
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* a:hover {
+    color: #ffc107;
+} */
+
+button {
+    font-family: inherit;
+}
+
+input, button {
+    outline: none;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 24px); /* Adjust width for padding */
+}
+
+/* Button hover effect */
+/*  button:hover {
+    background-color: #ffc107;
+}*/

@@ -1,0 +1,41 @@
+.player-list {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .player-list form {
+    margin-bottom: 20px;
+  }
+  
+  .player-list input {
+    margin-right: 10px;
+  }
+  
+  .player-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .player-list li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .player-list button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .player-list button:hover {
+    background-color: #d32f2f;
+  }
+  
