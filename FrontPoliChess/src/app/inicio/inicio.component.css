@@ -1,9 +1,0 @@
-body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    background-image: url('../../assets/posible\ fondo\ crema\ marmolado.jpeg'); /* Cambia la ruta a tu imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
